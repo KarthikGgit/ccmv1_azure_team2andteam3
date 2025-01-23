@@ -39,7 +39,8 @@ function Dashboard() {
 
     const options = {
       method: 'POST',
-      url: '/api1/api/customer/logout',
+      // url: '/api1/api/customer/logout',
+      url: `${process.env.REACT_APP_API1_URL}/api/customer/logout`,
       headers: {
         Accept: '*/*',
         Authorization: `Bearer ${token}`,
@@ -49,7 +50,7 @@ function Dashboard() {
     try {
       const { data } = await axios(options);
       console.log(data);
-    } catch (error) {
+      } catch (error) {
       // Handle the error silently
       if (error.response.status === 403) {
         console.warn("Suppressed 403 error.");
@@ -71,7 +72,7 @@ function Dashboard() {
         return;
       }
 
-      const isValid = await validateJwt(token);
+      const isValid = await validateJwt(token);     
       if (isValid) {
         setIsValidToken(true);
       } else {

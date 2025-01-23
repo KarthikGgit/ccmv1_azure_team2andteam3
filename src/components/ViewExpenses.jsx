@@ -194,7 +194,8 @@ function ViewExpenses() {
         // const encodedUsername="YWNoaWxsZXli";
         const response = await axios.get(
           // "/api2/api/customer/creditcard/listcreditcards/YWNoaWxsZXli",       
-          `/api2/api/customer/creditcard/listcreditcards/${encodedUsername}`,   //uncomment to use encoded username
+          // `/api2/api/customer/creditcard/listcreditcards/${encodedUsername}`,   //uncomment to use encoded username
+          `${process.env.REACT_APP_API2_URL}/api/customer/creditcard/listcreditcards/${encodedUsername}`, 
            // "/api2/api/customer/creditcard/listcreditcards/achilleyb",       
         {
           params: {showFullNumber: 'true'},
@@ -221,7 +222,8 @@ function ViewExpenses() {
     try {
       const response = await axios.get(
         // "/api2/api/customer/transactions/YWNoaWxsZXli",
-        `/api2/api/customer/transactions/${encodedUsername}`,   //uncomment to use encoded username
+        // `/api2/api/customer/transactions/${encodedUsername}`,   //uncomment to use encoded username
+        `${process.env.REACT_APP_API2_URL}/api/customer/transactions/${encodedUsername}`,
 
         // "/api2/api/customer/transactions/lastXTransactions/achilleyb",
         // {

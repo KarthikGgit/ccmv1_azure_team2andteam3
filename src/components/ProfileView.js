@@ -15,7 +15,7 @@ const ProfileView = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`/api2/api/customer/${encodeURIComponent(encodedUsername)}`);
+        const response = await axios.get(`${process.env.REACT_APP_API2_URL}/api/customer/${encodeURIComponent(encodedUsername)}`);
         setData(response.data.data); // Assuming data is inside the "data" field
       } catch (err) {
         console.error('Error fetching profile data:', err);

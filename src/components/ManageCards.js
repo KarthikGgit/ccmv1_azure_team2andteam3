@@ -46,7 +46,7 @@ const CreditCard = ({ card, onClick }) => {
     
     try {
         // Toggle the card status via the API
-        const response = await axios.put(`/api2/api/customer/creditcard/togglecreditcard/${encodeURIComponent(encodedUsername)}/${card.creditCardId}/toggle`);
+        const response = await axios.put(`${process.env.REACT_APP_API2_URL}/api/customer/creditcard/togglecreditcard/${encodeURIComponent(encodedUsername)}/${card.creditCardId}/toggle`);
         if (response.status === 200) {
             // Toggle the card's active state
             const newStatus = !isEnabled;
@@ -242,7 +242,7 @@ function ManageCards() {
         // const encodedUsername="YWNoaWxsZXli";
         const response = await axios.get(
           // "/api2/api/customer/creditcard/listcreditcards/YWNoaWxsZXli",       
-          `/api2/api/customer/creditcard/listcreditcards/${encodedUsername}`,   //uncomment to use encoded username
+          `${process.env.REACT_APP_API2_URL}/api/customer/creditcard/listcreditcards/${encodedUsername}`,   //uncomment to use encoded username
            // "/api2/api/customer/creditcard/listcreditcards/achilleyb",       
         {
           params: {showFullNumber: 'true'},

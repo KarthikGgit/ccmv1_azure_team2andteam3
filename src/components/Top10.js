@@ -26,7 +26,8 @@ const Top10 = ({ isValidToken }) => {
     const fetchTransactions = async () => {
       setLoadingTransactions(true); // Set loading to true before fetching data
       try {
-        const response = await axios.get(`/api2/api/customer/transactions/lastXTransactions/${encodedUsername}?limit=10&status=both`);
+        // const response = await axios.get(`/api2/api/customer/transactions/lastXTransactions/${encodedUsername}?limit=10&status=both`);
+        const response = await axios.get(`${process.env.REACT_APP_API2_URL}/api/customer/transactions/lastXTransactions/${encodedUsername}?limit=10&status=both`);
         console.log("Transactions Response:", response.data);  // Log the full response to inspect it
 
         // Now inspect the structure of response.data

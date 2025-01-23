@@ -24,7 +24,8 @@ export async function fetchUsernameFromApi(savedtoken) {
 
     // Send the token to the API
     // const response = await axios.get('/api1/api/customer/jwt/validate', {
-    const response = await axios.get('/api1/api/customer/jwt/validate', {
+    // const response = await axios.get('/api1/api/customer/jwt/validate', {
+      const response = await axios.get(`${process.env.REACT_APP_API1_URL}/api/customer/jwt/validate`, {
       params: {
         token: token
       }

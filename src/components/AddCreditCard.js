@@ -161,7 +161,8 @@ const AddCreditCardDialog = ({ username, fetchUserData, existingCreditCards }) =
     setLoading(true);
     try {
       // Send data to backend
-      const response = await axios.post(`/api2/api/customer/creditcard/addcreditcard/${encodeURIComponent(encodedUsername)}`, formattedCardData);
+      // const response = await axios.post(`/api2/api/customer/creditcard/addcreditcard/${encodeURIComponent(encodedUsername)}`, formattedCardData);
+      const response = await axios.post(`${process.env.REACT_APP_API2_URL}/api/customer/creditcard/addcreditcard/${encodeURIComponent(encodedUsername)}`, formattedCardData);
       
       console.log('API Response:', response); // Debugging the API response
 
@@ -207,7 +208,7 @@ const AddCreditCardDialog = ({ username, fetchUserData, existingCreditCards }) =
   return (
     <>
       {/* Button to open the dialog */}
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button variant="contained" color="primary" onClick={handleClickOpen} >
         Add Credit Card
       </Button>
 
