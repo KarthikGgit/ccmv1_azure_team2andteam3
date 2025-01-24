@@ -286,7 +286,8 @@ function ManageCards() {
 
     const options = {
       method: 'POST',
-      url: '/api1/api/customer/logout',
+      // url: '/api1/api/customer/logout',
+      url: `${process.env.REACT_APP_API1_URL}/api/customer/logout`,
       headers: {
         Accept: '*/*',
         Authorization: `Bearer ${token}`,
